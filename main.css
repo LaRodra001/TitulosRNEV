@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Notch:wght@500&display=swap');
+
 :root {
     --header-width: 100%;
     --header-height: 80px;
+}
+
+body {
+    font-family: 'Stack Sans Notch', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .header {
@@ -10,5 +18,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 }
