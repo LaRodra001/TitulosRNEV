@@ -2,22 +2,15 @@
 
 :root {
     --header-width: 100%;
-    --header-height: 5rem;
-}
-
-@media (max-width: 600px) {
-  .menu {
-    display: none;
-  }
-  .mobile-menu {
-    display: block;
-  }
+    /* Make header height fluid between small and large screens */
+    --header-height: clamp(3rem, 6vh, 6rem);
 }
 
 body {
     font-family: 'Stack Sans Notch', sans-serif;
     margin: 0;
-    padding: 0;
+    /* Add top padding so page content is not hidden behind the fixed header */
+    padding-top: calc(var(--header-height) + 0.5rem);
 }
 
 .header {
@@ -28,19 +21,29 @@ body {
     align-items: center;
     justify-content: center;
     position: fixed;
-    top: 0rem;
-    left: 0rem;
-    right: 0rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    box-sizing: border-box;
+    padding: 0 1rem;
 }
 
+.header h1 {
+    margin: 0;
+    /* Responsive font size */
+    font-size: clamp(1.25rem, 3.5vw, 2rem);
+}
+
+/* Header image: center horizontally and animate vertically. Use transform with translateX(-50%) so keyframes preserve centering. */
 #header-down-plataform {
-    max-width: 5rem;
+    max-width: clamp(2.5rem, 12vw, 6rem);
     position: fixed;
-    top: -30%;
-    margin: 0rem;
-    left: 39%;
+    top: 0%;
+    left: 50%;
     height: auto;
     display: block;
+    transform: translate(-50%, -2rem);
     animation: moveDown 3s linear forwards;
     will-change: transform;
     z-index: 1;
@@ -48,9 +51,21 @@ body {
 
 @keyframes moveDown {
     0% {
-        transform: translateY(-2rem);
+        transform: translate(-50%, -2rem);
     }
     100% {
-        transform: translateY(12rem);
+        transform: translate(-50%, 12rem);
     }
+}
+
+/* Small screens tweaks */
+@media (max-width: 600px) {
+    :root { --header-height: clamp(2.5rem, 8vh, 4rem); }
+    #header-down-plataform { max-width: clamp(2rem, 20vw, 4rem); }
+    .header h1 { font-size: clamp(1rem, 6vw, 1.4rem); }
+}
+
+/* Slight adjustments for very large screens */
+@media (min-width: 1200px) {
+    #header-down-plataform { max-width: 6.5rem; }
 }
