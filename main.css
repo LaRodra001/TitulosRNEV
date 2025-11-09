@@ -10,6 +10,10 @@ body {
     margin: 0;
 }
 
+.notch {
+    font-family: 'Stack Sans Notch', sans-serif;
+}
+
 /* HEADER / BANNER AREA */
 .header {
     width: 100%;
@@ -45,7 +49,7 @@ body {
 }
 
 #header-down-plataform {
-    max-width: 4rem;
+    max-width: 8rem;
     height: auto;
     display: block;
     animation: moveDown 0.75s ease-out forwards;
