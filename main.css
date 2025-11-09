@@ -6,11 +6,10 @@
     --header-height: clamp(3rem, 6vh, 6rem);
 }
 
+
 body {
     font-family: 'Stack Sans Notch', sans-serif;
     margin: 0;
-    /* Add top padding so page content is not hidden behind the fixed header */
-    padding-top: calc(var(--header-height) + 0.5rem);
 }
 
 .header {
@@ -20,11 +19,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 0;
+    z-index: 1020; /* above default content but below modals */
     box-sizing: border-box;
     padding: 0 1rem;
 }
@@ -35,26 +34,21 @@ body {
     font-size: clamp(1.25rem, 3.5vw, 2rem);
 }
 
-/* Header image: center horizontally and animate vertically. Use transform with translateX(-50%) so keyframes preserve centering. */
 #header-down-plataform {
     max-width: clamp(2.5rem, 12vw, 6rem);
-    position: fixed;
-    top: 0%;
-    left: 35%;
     height: auto;
     display: block;
-    transform: translate(-50%, -2rem);
+    transform: translateY(-2rem);
     animation: moveDown 0.75s ease-out forwards;
     will-change: transform;
-    z-index: 1;
 }
 
 @keyframes moveDown {
     0% {
-        transform: translateY(-10rem);
+        transform: translateY(-2rem);
     }
     100% {
-        transform: translateY(-2rem);
+        transform: translateY(0);
     }
 }
 
