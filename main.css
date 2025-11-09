@@ -5,19 +5,10 @@
     --header-height: 5rem;
 }
 
-@media (max-width: 600px) {
-  .menu {
-    display: none;
-  }
-  .mobile-menu {
-    display: block;
-  }
-}
 
 body {
     font-family: 'Stack Sans Notch', sans-serif;
     margin: 0;
-    padding: 0;
 }
 
 .header {
@@ -27,10 +18,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: fixed;
-    top: 0rem;
-    left: 0rem;
-    right: 0rem;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1020; /* above default content but below modals */
+    box-sizing: border-box;
+    padding: 0 1rem;
+}
+
+.header h1 {
+    margin: 0;
+    /* Responsive font size */
+    font-size: clamp(1.25rem, 3.5vw, 2rem);
 }
 
 #header-down-plataform {
