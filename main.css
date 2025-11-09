@@ -2,7 +2,16 @@
 
 :root {
     --header-width: 100%;
-    --header-height: 80px;
+    --header-height: 5rem;
+}
+
+@media (max-width: 600px) {
+  .menu {
+    display: none;
+  }
+  .mobile-menu {
+    display: block;
+  }
 }
 
 body {
@@ -19,17 +28,17 @@ body {
     align-items: center;
     justify-content: center;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0rem;
+    left: 0rem;
+    right: 0rem;
 }
 
 #header-down-plataform {
-    width: 25%;
+    max-width: 5rem;
     position: fixed;
     top: -30%;
-    margin: 0;
-    left: 10%;
+    margin: 0rem;
+    left: 35%;
     height: auto;
     display: block;
     animation: moveDown 3s linear forwards;
@@ -39,9 +48,9 @@ body {
 
 @keyframes moveDown {
     0% {
-        transform: translateY(-200px);
+        transform: translateY(-2rem);
     }
     100% {
-        transform: translateY(150px);
+        transform: translateY(12rem);
     }
 }
