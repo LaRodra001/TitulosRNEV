@@ -8,6 +8,7 @@
 body {
     font-family: 'Stack Sans Notch', sans-serif;
     margin: 0;
+    overflow-x: hidden;
 }
 
 .notch {
@@ -21,49 +22,56 @@ body {
     background-color: #f0f0f0;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Separate icon and title */
+    justify-content: space-between;
     position: sticky;
     top: 0;
     z-index: 1020;
     box-sizing: border-box;
-    padding: 0 1rem;
+    padding: 0 0.3rem; /* mínimo espaciado */
+    flex-wrap: nowrap;
+    gap: 0.2rem;
+    line-height: 1rem;
 }
 
-/* MENU ICON */
+/* ICONO MENÚ */
 .header span {
-    font-size: 1.8rem;
+    font-size: 2rem;
     cursor: pointer;
 }
 
-/* TITLE + IMAGE GROUP */
+/* CONTENEDOR TÍTULO + IMAGEN */
 .header .container {
     flex: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
+/* TÍTULO */
 .header h1 {
     margin: 0;
-    font-size: clamp(1.25rem, 3.5vw, 2rem);
+    font-size: 2rem;
     text-align: center;
+    line-height: 1rem;
 }
 
+/* IMAGEN DEL HEADER */
 #header-down-plataform {
-    max-width: 8rem;
+    max-width: 5rem;
     height: auto;
     display: block;
     animation: moveDown 3s ease-out forwards;
-    margin-right: 0.75rem;
 }
 
 /* MAIN CONTAINER / BANNER BACKGROUND */
 .main-container {
+    width: 100%;
     max-width: 1200px;
     min-height: 100vh;
     margin: 0 auto;
     padding: 2rem 1rem;
     box-sizing: border-box;
-    background-image: url('assets/Banner.jpg');
+    background-image: url('assets/Banner.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -79,14 +87,14 @@ body {
     left: 0;
     background-color: #111;
     overflow-x: hidden;
-    transition: 0.4s;
+    transition: width 0.4s ease;
     padding-top: 60px;
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 12px 32px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 1.4rem;
     color: #818181;
     display: block;
     transition: 0.3s;
@@ -98,9 +106,9 @@ body {
 
 .sidenav .closebtn {
     position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
+    top: 0.5rem;
+    right: 1rem;
+    font-size: 2rem;
 }
 
 #seeMore {
@@ -108,8 +116,7 @@ body {
     cursor: pointer;
 }
 
-
-/* IMAGE ANIMATION */
+/* ANIMACIÓN */
 @keyframes moveDown {
     0% {
         transform: translate(-100%, -50%);
@@ -126,54 +133,19 @@ body {
 }
 
 /* RESPONSIVE BEHAVIOR */
-
-/* Small devices (phones) */
 @media (max-width: 576px) {
     .header {
         flex-direction: column;
-        height: auto;
-        padding: 0.5rem;
-        text-align: center;
-    }
-
-    .header span {
-        align-self: flex-start;
-        margin-bottom: 0.5rem;
-    }
-
-    .header .container {
         justify-content: center;
-    }
-
-    #header-down-plataform {
-        max-width: 2.5rem;
-        margin-right: 0.5rem;
+        height: auto;
+        padding: 0.3rem;
     }
 
     .header h1 {
-        font-size: 1.5rem;
+        font-size: 0.7rem;
     }
 
-    .main-container {
-        background-size: contain; /* Avoids cropping */
-        background-position: top;
-        padding: 1rem;
-    }
-}
-
-/* Medium devices (tablets) */
-@media (min-width: 577px) and (max-width: 992px) {
     #header-down-plataform {
-        max-width: 3rem;
-    }
-}
-
-/* For very small viewport height */
-@media screen and (max-height: 450px) {
-    .sidenav {
-        padding-top: 15px;
-    }
-    .sidenav a {
-        font-size: 18px;
+        max-width: 1rem;
     }
 }
