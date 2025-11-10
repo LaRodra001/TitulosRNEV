@@ -103,8 +103,8 @@ body {
     font-size: 36px;
 }
 
-.main-container a:hover {
-    text-decoration: none;
+#seeMore {
+    text-decoration: underline;
     cursor: pointer;
 }
 
