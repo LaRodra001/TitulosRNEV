@@ -52,7 +52,7 @@ body {
     max-width: 8rem;
     height: auto;
     display: block;
-    animation: moveDown 0.75s ease-out forwards;
+    animation: moveDown 3s ease-out forwards;
     margin-right: 0.75rem;
 }
 
@@ -79,7 +79,7 @@ body {
     left: 0;
     background-color: #111;
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: 0.4s;
     padding-top: 60px;
 }
 
@@ -102,6 +102,12 @@ body {
     right: 25px;
     font-size: 36px;
 }
+
+.main-container a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
 
 /* IMAGE ANIMATION */
 @keyframes moveDown {
